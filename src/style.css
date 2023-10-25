@@ -24,7 +24,9 @@ body {
     width: 100vw;
     height: 100vh;
 
-    filter: blur(16px) saturate(0.75);
+    filter: blur(32px) brightness(0.66);
+
+    opacity: 0;
   }
 
   &::after {
@@ -37,7 +39,8 @@ body {
     height: 100vh;
 
     background-image: radial-gradient(
-      rgba(0, 0, 0, 0) 25%,
+      circle,
+      rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     );
   }
@@ -47,6 +50,8 @@ body {
   margin: 0 auto;
 
   #canvasContainer {
+    position: relative;
+
     padding: 8px;
     display: flex;
 
@@ -57,13 +62,28 @@ body {
 
     box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
 
+    #canvasStub {
+      position: absolute;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      background-color: black;
+      z-index: 1;
+    }
+
     #canvas {
       display: block;
       background-color: black;
       border-radius:2px;
       padding: 4px;
       margin: 0;
-    }
 
+      opacity: 0;
+      z-index: 2;
+    }
   }
+}
+
+.visible {
+  opacity: 1 !important;
+  transition: opacity 0.2s linear;
 }

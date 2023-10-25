@@ -35,6 +35,9 @@ function showLatestImage() {
 
     backgroundCtx!.drawImage(img, x, y, actualWidth, actualHeight);
 
+    ctx!.canvas.classList.add("visible");
+    backgroundCtx!.canvas.classList.add("visible");
+
     URL.revokeObjectURL(url);
   };
 
