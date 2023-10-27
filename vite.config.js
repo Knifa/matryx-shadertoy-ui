@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/ws/layers": {
-        target: "ws://led-wall-pi.bean.systems:42025",
+        target: "ws://led-wall-pi.local.bean.systems:42025",
         ws: true
       }
     }
